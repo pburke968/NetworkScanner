@@ -33,7 +33,7 @@ def scan():
         netwrk = input("Please enter the network you would like to scan (example: 192.168.1): ")
         for i in range(1,256):
             host = (f"{netwrk}.{i}")
-            result = ping(host, count=1)
+            result = ping(host, count=1, privileged=False, timeout=0.5)
             if result.is_alive:
                 print(f"Online {host} {result.avg_rtt} ms")
                 online_hosts.append(host)
@@ -57,7 +57,7 @@ def view():
 
 
 def export():
-    pass
+    pass  # Will work on this later today or this weekend
 
 def quitP():
     exit()
